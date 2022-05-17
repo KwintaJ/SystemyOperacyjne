@@ -1,0 +1,62 @@
+###############################################################################
+#  Autor: Jan Kwinta                                       Krakow, 09.03.2022 #
+#  Projekt: Procesy                                                 Zadanie 2 #
+###############################################################################
+
+* Zawartosc:
+===============================================================================
+Katalog ProcesyZadanie2 zawiera nastepujace pliki:
+- README                |   Ten plik
+- Makefile              |   Plik do kompilacji i uruchamiania programow 
+- identifiers2.c        |   Pliki zrodlowe programu do Cwiczenia 2
+- extPrint.c            |   |
+- printIDs.h            |   Plik naglowkowy z funkcja wypisujaca
+- Odpowiedzi.txt        |   Plik tekstowy z odpowiedziami na pytania
+===============================================================================
+
+
+
+* Opis programow w projekcie:
+_______________________________________________________________________________
+
+--=Cwiczenie 2=--
+
+.   Zmodyfikowany program z Cwiczenia 1B wypisujacy identyfikatory 
+    procesow potomnych programem pobocznym uruchamianym przez funkcje execlp.
+    Moduly:
+    1) identifiers2.c  - program glowny,
+    2) extPrint.c - program poboczny do wypisywania wywolywany przez 
+       program glowny,
+    3) printIDs.h.
+
+-> Przy n-krotnym wywolaniu fork-exec powstaje n nowych procesow, poniewaz
+dzielacym sie procesem jest tylko proces macierzysty - procesy potomne
+sie nie dziela.
+_______________________________________________________________________________
+
+
+
+* Jak uruchomic program:
+*******************************************************************************
+
+Katalog zawiera program Makefile do kompilacji i uruchamiania powyzszych 
+programow, a takze czyszczenia katalogu i jego archiwizacji.
+
+-> Aby skompilowac wszystkie programy w projekcie bez ich uruchamiania
+    nalezy wykonac komende:
+        make all
+
+->  Aby uruchomic 2-gi program, nalezy wykonac komende:
+        make run2
+
+->  Aby wyczyscic katalog (usunac zbedne pliki), nalezy wykonac:
+        make clean
+
+->  W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+        make tar
+
+--> Dla pewnosci, ze wykonywane sa polecenia zdefiniowane w Makefile,
+    a nie wbudowane polecenia make'a, uzyc opcji -r, na przyklad
+        make -r run2
+
+*******************************************************************************

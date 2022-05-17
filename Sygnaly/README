@@ -1,0 +1,85 @@
+###############################################################################
+#  Autor: Jan Kwinta                                       Krakow, 22.03.2022 #
+#  Projekt: Sygnaly                                                 Zadanie 3 #
+###############################################################################
+
+* Zawartosc:
+===============================================================================
+Katalog Sygnaly zawiera nastepujace pliki:
+- README                |   Ten plik
+- Makefile              |   Plik do kompilacji programow
+- signalsA.c            |   Pliki zrodlowe programow do Cwiczenia 3
+- signalsB.c            |   |
+- signalsC.c            |   |
+- argErrors.h           |   Plik naglowkowy z funkcja sprawdzajaca
+                        |   poprawnosc argumentow wywolania
+===============================================================================
+
+
+
+* Opis programow w projekcie:
+_______________________________________________________________________________
+
+--=Cwiczenie 3=--
+
+A.  Program do obslugi sygnalow z mozliwosciami: 
+        (1) wykonania operacji domyslnej, 
+        (2) ignorowania, 
+        (3) przechwycenia i wlasnej obslugi sygnalu.
+    Program przyjmuje dwa argumenty wywolania: opcje obslugi i numer sygnalu,
+    ktory ma obslugiwac ta opcja.
+            Moduly: 
+            1) signalsA.c  - program,
+            2) argErrors.h - funkcja sprawdzajaca poprawnosc argumentow
+               wywolania programu.
+
+B.  Program, ktory tworzy proces potomny i w nim uruchamia
+    program A uzywajac funkcji exec. Wysyla do niego sygnaly 
+    z procesu macierzystego.
+            Moduly:
+            1) signalsB.c  - program,
+            2) argErrors.h.
+
+C.  Program, ktory tworzy proces potomny i ustawia go na lidera
+    grupy procesow. Nastepnie uruchamia kilka procesow potomnych
+    i przesyla z procesu macierzystego sygnaly do grupy procesow.
+    Proces pierwszego pokolenia ignoruje sygnaly i czeka, az
+    zakoncza sie wszystkie procesy potomne drugiego pokolenia.
+            Moduly:
+            1) signalsC.c  - program,
+            2) argErrors.h.
+
+_______________________________________________________________________________
+
+
+
+* Jak uruchomic te programy:
+*******************************************************************************
+
+Katalog zawiera program Makefile do kompilacji powyzszych 
+programow, a takze czyszczenia katalogu i jego archiwizacji.
+
+-> Aby skompilowac wszystkie programy w projekcie bez ich uruchamiania
+    nalezy wykonac komende:
+        make all
+
+->  Aby skompilowac dowolny program z Cwiczenia 3, nalezy wykonac komende:
+        make prog3[X]
+    Gdzie X zastapic wielka litera podpunkt zadania [A - C]
+
+->  Aby uruchomic skompilowany program z Cwiczenia 3, nalezy wykonac komende:
+        ./signals[Y].x [opcja] [nr_sygnalu]
+    Gdzie [Y] zastapic wielka litera podpunkt zadania [A - C]
+    oraz podac [opcje] - jedna z trzech dostepnych:
+        "default" - wykonanie operacji domyslnej
+        "ignore" - ignorowanie sygnalu
+        "handle" - wlasna obsugla otrzymywanego sygnalu
+    oraz podac [nr_sygnalu] ktory ma byc obslugiwany czyli liczbe [1 - 64]
+
+->  Aby wyczyscic katalog (usunac zbedne pliki), nalezy wykonac:
+        make clean
+
+->  W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+        make tar
+
+*******************************************************************************

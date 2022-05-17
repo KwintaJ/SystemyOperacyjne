@@ -1,0 +1,97 @@
+###############################################################################
+#  Autor: Jan Kwinta                                       Krakow, 05.04.2022 #
+#  Projekt: Potoki                                                  Zadanie 5 #
+###############################################################################
+
+* Zawartosc:
+===============================================================================
+Katalog PotokiZadanie5 zawiera nastepujace pliki:
+- README                |   Ten plik
+- Makefile              |   Plik do kompilacji i uruchamiania programow
+- pipes5A.c             |   Pliki zrodlowe programow
+- progProducer.c        |   |
+- progConsume.c         |   |
+- producer.txt          |   Plik tekstowy zawierajacy wejscie, czyli "towar",
+                        |   którym handluja programy producenta i konsumenta 
+===============================================================================
+
+
+
+* Opis programow w projekcie:
+_______________________________________________________________________________
+
+--=Cwiczenie 5=--
+
+A.  Program symulujacy problem producenta-konsumenta. Program tworzy potok
+    nazwany FIFO a potem uruchamia dwa podprogramy: 
+
+        a) producenta, który pobiera "surowiec" z pliku producer.txt i wstawia
+        towar do potoku nazwanego,
+
+        b) konsumenta, ktory odbiera towar z potoku i wstawia
+        do pliku wyjsciowego (ktory tworzy, jezeli nie istnieje). 
+
+    Po zakonczeniu "handlu" nastepuje porownanie powyzszych plikow tekstowych 
+    aby zobaczyc czy nie doszlo do powielenia albo utraty towaru. Potok jest 
+    usuwany funkcja zarejestrowana przez atexit.
+
+    Moduly: 
+    1) pipes5A.c - program glowny,
+    2) progProducer.c - program producent,
+    3) progConsumer.c - program konsument,
+    4) producer.txt - dokument tekstowy wejscia.  
+
+B.  Utworzenie potoku nazwanego z poziomu powloki (przez odpowiednia komende
+    zdefiniowana w Makefile'u), a nastepnie uruchomienie programow producenta i
+    konsumenta w roznych terminalach, ktore dzialaja jak w podpunkcie A. 
+    Usuwanie potoku rowniez przez komende wykonywana przez make'a.
+
+    Moduly:
+    1) progProducer.c - program producent,
+    2) progConsumer.c - program konsument,
+    3) producer.txt - dokument tekstowy wejscia. 
+
+_______________________________________________________________________________
+
+
+
+* Jak uruchomic te programy:
+*******************************************************************************
+
+Katalog zawiera program Makefile do kompilacji i uruchamiania powyzszych 
+programow, a takze czyszczenia katalogu i jego archiwizacji.
+
+-> Aby skompilowac wszystkie programy w projekcie bez ich uruchamiania
+    nalezy wykonac komende:
+        make all
+
+->  Aby uruchomic dowolny podpunkt z Cwiczenia 5, nalezy wykonac komende:
+        make run5[X] P=[Y] C=[Z] (PIPENAME=[Q])
+
+    Gdzie pola [] uzupelnic odpowiednio:
+        [X] - podpunkt cwiczenia 5: A lub B
+        [Y] - nazwa pliku wejscia (producenta) np. producer.txt
+        [Z] - nazwa pliku wyjscia (konsumenta) np. consumer.txt
+        [Q] - argument opcjonalny - nazwa potoku FIFO (domyslnie "pFIFO")
+
+    Na przyklad:
+        make run5A P=producer.txt C=consumer.txt
+    lub:
+        make run5A P=producer.txt C=consumer.txt PIPENAME=potok
+        
+
+    Program symulujacy problem "Producenta-konsumenta" zostanie wykonany, 
+    a nastepnie plik wejsciowy zostanie porownany z plikiem wyjsciowym. 
+    Po porownaniu niepotrzebny juz plik wyjsciowy zostanie usuniety.
+
+->  Aby wyczyscic katalog (usunac zbedne pliki), nalezy wykonac:
+        make clean
+
+->  W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+        make tar
+
+--> Dla pewnosci, ze wykonywane sa polecenia zdefiniowane w Makefile,
+    a nie wbudowane polecenia make'a, uzyc opcji -r, na przyklad
+        make -r run1
+
+*******************************************************************************

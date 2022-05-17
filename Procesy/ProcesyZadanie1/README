@@ -1,0 +1,107 @@
+###############################################################################
+#  Autor: Jan Kwinta                                       Krakow, 09.03.2022 #
+#  Projekt: Procesy                                                 Zadanie 1 #
+###############################################################################
+
+* Zawartosc:
+===============================================================================
+Katalog ProcesyZadanie1 zawiera nastepujace pliki:
+- README                |   Ten plik
+- Makefile              |   Plik do kompilacji i uruchamiania programow
+- identifiersA.c        |   Pliki zrodlowe programow do Cwiczenia 1
+- identifiersB.c        |   |
+- identifiersC.c        |   |   
+- identifiersD.c        |   |
+- identifiersE.c        |   |
+- printIDs.h            |   Pliki naglowkowe
+- forkProc.h            |   |
+- Odpowiedzi.txt        |   Plik tekstowy z odpowiedziami na pytania,
+                        |   w ktorym znajduje sie też "drzewo genealogiczne
+                        |   procesow" z podpunktu D
+===============================================================================
+
+
+
+* Opis programow w projekcie:
+_______________________________________________________________________________
+
+--=Cwiczenie 1=--
+
+A.  Program wypisujacy identyfikatory UID, GID, PID, PPID i PGID dla 
+    danego procesu.
+    Moduly: 
+    1) identifiersA.c  - program glowny,
+    2) printIDs.h - funkcja wypisujaca powyższe identyfikatory. 
+
+B.  Program wywolujacy funkcje fork 3 razy i wypisujacy identyfikatory 
+    UID, GID, PID, PPID i PGID dla procesu macierzystego oraz wszystkich 
+    procesow potomnych korzystajacy z funkcji wait.
+    Moduly:
+    1) identifiersB.c  - program glowny,
+    2) printIDs.h,
+    3) forkProc.h - funkcja tworzaca proces potomny.
+
+C.  Program wywolujacy funkcje fork 3 razy i wypisujacy identyfikatory 
+    UID, GID, PID, PPID i PGID dla procesu macierzystego oraz wszystkich 
+    procesow potomnych korzystajacy z funkcji sleep aby procesy potomne 
+    byly adoptowane przez init lub systemd.
+    Moduly:
+    1) identifiersC.c  - program glowny,
+    2) printIDs.h,
+    3) forkProc.h.
+
+D.  Program wywolujacy funkcje fork 3 razy i wypisujacy identyfikatory 
+    UID, GID, PID, PPID i PGID dla procesu macierzystego oraz wszystkich 
+    procesow potomnych korzystajacy z funkcji sleep w taki sposob aby 
+    wypisywac procesy grupowane pokoleniami.
+    Moduly:
+    1) identifiersD.c  - program glowny,
+    2) printIDs.h.
+
+-> W pliku Odpowiedzi.txt narysowane jest "drzewo genealogiczne"
+   procesow.
+
+E.  Program wywolujacy funkcje fork 3 razy i wypisujacy identyfikatory 
+    UID, GID, PID, PPID i PGID dla procesu macierzystego oraz wszystkich 
+    procesow potomnych, który ustawia kazdy proces potomny jako lidera 
+    swojej grupy procesow.
+    Moduly:
+    1) identifiersE.c  - program glowny,
+    2) printIDs.h.
+
+-> Przy n-krotnym wywolaniu funkcji fork powstaje (liczac razem z procesem 
+macierzystym) 2^n procesow. Dzieje sie tak dlatego, bo proces macierzysty
+przy pierwszym forku dzieli sie na 2, potem i proces potomny i proces
+macierzysty dzieli sie na dwa, potem kazdy z teraz 4 nowych procesow 
+dzieli sie na dwa i tak dalej.
+
+_______________________________________________________________________________
+
+
+
+* Jak uruchomic te programy:
+*******************************************************************************
+
+Katalog zawiera program Makefile do kompilacji i uruchamiania powyzszych 
+programow, a takze czyszczenia katalogu i jego archiwizacji.
+
+-> Aby skompilowac wszystkie programy w projekcie bez ich uruchamiania
+    nalezy wykonac komende:
+        make all
+
+->  Aby uruchomic dowolny program z Cwiczenia 1, nalezy wykonac komende:
+        make run1X
+    Gdzie zamiast X wpisac duza litera podpunkt [A - E] ktory 
+    chcemy wykonac.
+
+->  Aby wyczyscic katalog (usunac zbedne pliki), nalezy wykonac:
+        make clean
+
+->  W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+        make tar
+
+--> Dla pewnosci, ze wykonywane sa polecenia zdefiniowane w Makefile,
+    a nie wbudowane polecenia make'a, uzyc opcji -r, na przyklad
+        make -r run1A
+
+*******************************************************************************

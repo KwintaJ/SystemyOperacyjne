@@ -1,0 +1,5 @@
+Cwiczenie 2.
+
+-> Przy n-krotnym wywolaniu fork-exec powstaje n nowych procesow, poniewaz
+dzielacym sie procesem jest tylko proces macierzysty - procesy potomne
+sie nie dziela.

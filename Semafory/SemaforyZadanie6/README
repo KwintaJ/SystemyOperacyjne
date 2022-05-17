@@ -1,0 +1,72 @@
+###############################################################################
+#  Autor: Jan Kwinta                                       Krakow, 04.05.2022 #
+#  Projekt: Semafory                                                Zadanie 6 #
+###############################################################################
+
+* Zawartosc:
+===============================================================================
+Katalog SemaforyZadanie6 zawiera nastepujace pliki:
+- README                |   Ten plik
+- Makefile              |   Plik do kompilacji i uruchamiania programow
+- semaph_lib.h          |   Pliki biblioteczne
+- semaph_lib.c          |   |
+- duplicator.c          |   Pliki zrodlowe programow
+- realisator.c          |   |
+===============================================================================
+
+
+
+* Opis programow w projekcie:
+_______________________________________________________________________________
+
+--=Cwiczenie 6=--
+
+.   Projekt, ktory za pomoca semaforow nazwanych standardy POSIX symuluje 
+    zadanie wzajemnego wykluczania dla procesow. Czas operacji krytycznych
+    (na wspolnym zasobie) jest symulowany przez funkcje sleep. Kazdy proces
+    wypisuje przed, w trakcie i po dostepie do sekcji krytycznej komunikaty.
+    Program duplicator.c powiela kilka razy proces wykonujacy realizacje
+    wzajemnego wykluczania, czyli realisator.c. Do programu powielajacego
+    nazwa programu realizujacego, liczba powielen i liczba poszczegolnych 
+    sekcji przekazywana jest przez argumenty wywolania. 
+
+    Moduly: 
+    1) duplicator.c - program powielajacy,
+    2) realisator.c - program realizujacy wzajemne wykluczanie dostepu
+    3) semaph_lib - wlasna biblioteka funkcji obslugujacych semafory
+
+_______________________________________________________________________________
+
+
+
+* Jak uruchomic te programy:
+*******************************************************************************
+
+Katalog zawiera program Makefile do kompilacji i uruchamiania powyzszych 
+programow, a takze czyszczenia katalogu i jego archiwizacji.
+
+-> Aby skompilowac wszystkie programy w projekcie bez ich uruchamiania
+    nalezy wykonac komende:
+        make all
+
+->  Aby uruchomic powyzszy program nalezy wykonac komende:
+        make run6 R=[X] PROCNUM=[Y] SECTNUM=[Z]
+    Gdzie pola [X], [Y] i [Z] nalezy zastapic odpowiednio
+        - nazwa programu do inicjowania procesow (z rozszerzeniem .x)
+        - liczba powielen procesu
+        - liczba sekcji krytycznych i prywatnych kazdego procesu
+
+    Na przyklad:
+        make run6 R=realisator.x PROCNUM=6 SECTNUM=2
+
+->  Aby wyczyscic katalog (usunac zbedne pliki), nalezy wykonac:
+        make clean
+
+->  W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+        make tar
+
+--> Dla pewnosci, ze wykonywane sa polecenia zdefiniowane w Makefile,
+    a nie wbudowane polecenia make'a, uzyc opcji -r, na przyklad
+        make -r run1
+
+*******************************************************************************

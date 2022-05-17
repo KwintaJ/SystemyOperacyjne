@@ -1,0 +1,31 @@
+Cwiczenie 1.
+
+D.
+
+Przykladowy wynik programu identifiersD
+
+Process UID = 0   GID = 0   PID = 23697   PPID = 23696   PGID = 23695
+Process UID = 0   GID = 0   PID = 23698   PPID = 23697   PGID = 23695
+Process UID = 0   GID = 0   PID = 23699   PPID = 23698   PGID = 23695
+Process UID = 0   GID = 0   PID = 23700   PPID = 23697   PGID = 23695
+Process UID = 0   GID = 0   PID = 23701   PPID = 23697   PGID = 23695
+Process UID = 0   GID = 0   PID = 23703   PPID = 23698   PGID = 23695
+Process UID = 0   GID = 0   PID = 23702   PPID = 23699   PGID = 23695
+Process UID = 0   GID = 0   PID = 23704   PPID = 23700   PGID = 23695
+
+"Drzewo genealogiczne" tych procesow:
+
+                23697
+                  │
+                  ├────23698
+                  │      │
+         23700────┤      ├─────23699
+           │      │      │       │
+         23704  23701  23703   23702
+
+
+-> Przy n-krotnym wywolaniu funkcji fork powstaje (liczac razem z procesem 
+macierzystym) 2^n procesow. Dzieje sie tak dlatego, bo proces macierzysty
+przy pierwszym forku dzieli sie na 2, potem i proces potomny i proces
+macierzysty dzieli sie na dwa, potem kazdy z teraz 4 nowych procesow 
+dzieli sie na dwa i tak dalej.
