@@ -1,0 +1,58 @@
+###############################################################################
+#  Autor: Jan Kwinta                                       Krakow, DD.MM.YYYY #
+#  Projekt: ...                                                           ... #
+###############################################################################
+
+* Zawartosc:
+===============================================================================
+Katalog ... zawiera nastepujace pliki:
+- README                |   Ten plik
+- Makefile              |   Plik do kompilacji i uruchamiania programow
+- ...                   |   Pliki zrodlowe programow
+- ...                   |   |
+- Odpowiedzi.txt        |   Plik tekstowy z odpowiedziami na pytania
+===============================================================================
+
+
+
+* Opis programow w projekcie:
+_______________________________________________________________________________
+
+--=...=--
+
+I.  Program ...
+
+    Moduly: 
+    1) ...  - program glowny,
+    2) ...
+
+II. ...
+
+_______________________________________________________________________________
+
+
+
+* Jak uruchomic te programy:
+*******************************************************************************
+
+Katalog zawiera program Makefile do kompilacji i uruchamiania powyzszych 
+programow, a takze czyszczenia katalogu i jego archiwizacji.
+
+-> Aby skompilowac wszystkie programy w projekcie bez ich uruchamiania
+    nalezy wykonac komende:
+        make all
+
+->  Aby uruchomic ..., nalezy wykonac komende:
+        make run1
+
+->  Aby wyczyscic katalog (usunac zbedne pliki), nalezy wykonac:
+        make clean
+
+->  W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+        make tar
+
+--> Dla pewnosci, ze wykonywane sa polecenia zdefiniowane w Makefile,
+    a nie wbudowane polecenia make'a, uzyc opcji -r, na przyklad
+        make -r run1
+
+*******************************************************************************
