@@ -1,10 +1,9 @@
 ###############################################################################
-#							  Makefile do projektu							  #
-#							Pamiec Dzielona Zadanie 7						  #
-#																			  #
-#  Jan Kwinta													  DD.MM.YYYY  #
+#                             Makefile do projektu                            #
+#                           Pamiec Dzielona Zadanie 7                         #
+#                                                                             #
+#  Jan Kwinta                                                     DD.MM.YYYY  #
 ###############################################################################
-
 #==============================================================================
 # Dostepne komendy: make all, run7, clean, tar
 
