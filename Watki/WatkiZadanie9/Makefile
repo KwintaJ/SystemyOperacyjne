@@ -11,8 +11,8 @@
 #==============================================================================
 # Flagi, kompilator, rozszerzenia i inne:
 
-Cflags = -O2 -Wall -std=gnu99 -pedantic -pthread -D_POSIX_SOURCE
-Lflags = -Wall -std=gnu99 -pedantic -pthread -D_POSIX_SOURCE
+Cflags = -O2 -Wall -std=gnu99 -pthread -D_POSIX_SOURCE
+Lflags = -Wall -std=gnu99 -pthread -D_POSIX_SOURCE
 LIBflags = -lrt -lpthread
 CO = gcc
 LD = gcc
@@ -39,7 +39,6 @@ $(Prog1).o: $(Prog1).c
 
 $(Prog1).x: $(Prog1).o
 	$(CO) $(Cflags) -o $@ $^
-
 
 
 #==============================================================================

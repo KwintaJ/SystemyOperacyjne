@@ -9,7 +9,6 @@ Katalog WatkiZadanie9 zawiera nastepujace pliki:
 - README                |   Ten plik
 - Makefile              |   Plik do kompilacji i uruchamiania programow
 - threads.c             |   Plik zrodlowy programu
-- Odpowiedzi.txt        |   Plik tekstowy z odpowiedziami na pytania
 ===============================================================================
 
 
