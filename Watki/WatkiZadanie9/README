@@ -1,0 +1,56 @@
+###############################################################################
+#  Autor: Jan Kwinta                                       Krakow, 06.06.2022 #
+#  Projekt: Watki                                                   Zadanie 9 #
+###############################################################################
+
+* Zawartosc:
+===============================================================================
+Katalog WatkiZadanie9 zawiera nastepujace pliki:
+- README                |   Ten plik
+- Makefile              |   Plik do kompilacji i uruchamiania programow
+- threads.c             |   Plik zrodlowy programu
+- Odpowiedzi.txt        |   Plik tekstowy z odpowiedziami na pytania
+===============================================================================
+
+
+
+* Opis programow w projekcie:
+_______________________________________________________________________________
+
+--=Cwiczenie 9=--
+
+.   Program implementujacy wzajemne wykluczanie dla kilku watkow jednego
+    procesu za pomoca muteksow. Watki po kolei zwiekszaja liczbe kontrolna
+    (zmienna globalna) i dla zglaszaja sie z lewej i prawej strony konsoli
+    wykonujac odpowiednio sekcje prywatna i krytyczna.  
+
+_______________________________________________________________________________
+
+
+
+* Jak uruchomic te programy:
+*******************************************************************************
+
+Katalog zawiera program Makefile do kompilacji i uruchamiania powyzszych 
+programow, a takze czyszczenia katalogu i jego archiwizacji.
+
+-> Aby skompilowac wszystkie programy w projekcie bez ich uruchamiania
+    nalezy wykonac komende:
+        make all
+
+->  Aby uruchomic powyzszy program nalezy wykonac komende:
+        make run9 THREADSNUM=[X] SECTNUM=[Y]
+    Gdzie zamiast [X] wstawic liczbe watkow,
+    a zamiast [Y] liczbe sekcji krytycznych/prywatnych
+
+->  Aby wyczyscic katalog (usunac zbedne pliki), nalezy wykonac:
+        make clean
+
+->  W celu archiwizacji oraz kompresji katalogu nalezy wykonac:
+        make tar
+
+--> Dla pewnosci, ze wykonywane sa polecenia zdefiniowane w Makefile,
+    a nie wbudowane polecenia make'a, uzyc opcji -r, na przyklad
+        make -r run1
+
+*******************************************************************************
