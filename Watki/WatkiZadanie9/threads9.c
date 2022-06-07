@@ -59,7 +59,7 @@ void argCheck(int argc, char **argv)
     }
 }
 
-/*funkcja do ustawiania kursora na odpowiednim miejscu w terminalu*/
+/* funkcja do ustawiania kursora na odpowiednim miejscu w terminalu */
 void goToXY(unsigned int x, unsigned int y)
 {
     printf("\033[%d;%dH\033[2K", y, x);
