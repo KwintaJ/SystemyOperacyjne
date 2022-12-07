@@ -27,9 +27,7 @@ _______________________________________________________________________________
 
 .   Program implementujacy problem producenta - konsumenta z zadania 4. 
     Implementowany tym razem nie za pomoca potokow lecz przy uzyciu 
-    semaforow oraz pamieci dzielonej standardu POSIX. Projekt umozliwia 
-    uruchomienie programow z biblioteka memory_lib dolaczana statycznie 
-    lub dynamicznie.
+    semaforow oraz pamieci dzielonej standardu POSIX.
 
     Moduly: 
     1) shm7.c  - program glowny,
@@ -51,18 +49,10 @@ programow, a takze czyszczenia katalogu i jego archiwizacji.
     nalezy wykonac komende:
         make all
 
-->  Aby uruchomic program z biblioteka dolaczana statycznie nalezy 
-    wykonac komende:
-        make run7static
+->  Aby uruchomic program nalezy wykonac komende: 
+        make run7
 
-->  Aby uruchomic program z biblioteka dolaczana dynamicznie na dwa rozne 
-    sposoby nalezy wykonac komende:
-        make run7dynamic1
-            lub
-        make run7dynamic2
-
-    --> Do wszystkich powyzszych komend run7[x] mozna dolaczyc dwa 
-        opcjonalne argumenty
+    --> Do komendy run7 mozna dolaczyc dwa opcjonalne argumenty:
             IN=[plik1.txt] oraz OUT=[plik2.txt]
         ktore sa plikami otwieranymi przez odpowiednio producenta
         i konsumenta. Domyslnie IN=towar.txt oraz OUT=out.txt.

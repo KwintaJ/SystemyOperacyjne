@@ -37,11 +37,16 @@ int semaph_value(sem_t*);
 
 /* tworzenie, otwieranie obiektu pamieci dzielonej */
 int create_shm_obj(const char*);
-int open_shm_bbj(const char*);
+int open_shm_obj(const char*);
+
+/* ustawianie rozmiaru obiektu */
+void truncate_shm_obj(int);
+
+/* mapowanie */
+void *map_shm_obj(size_t, int);
 
 /* zamykanie, usuwanie obiektu pamieci dzielonej */
 void close_shm_obj(int);
 void delete_shm_obj(const char*);
-
 
 #endif

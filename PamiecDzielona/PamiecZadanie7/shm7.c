@@ -23,23 +23,14 @@
 
 #include "memory_lib.h"
 
-#define NUMBUF 5
-#define NUMELM 20
-
 const char *semaphName = "prodConsSemaphor";
 const char *shmObjName = "/productSpace";
-
-struct shmSegment
-{
-    char buffer[NUMBUF][NUMELM];
-    int left, right;
-};
 
 /* funkcja sprawdzajaca poprawnosc argumentow uruchomienia */
 void argCheck(int argc, char **argv)
 {
     /* sprawdzenie czy ilosc argumentow jest poprawna */
-    if(argc != 4)
+    if(argc != 3)
     {
         printf("ERROR\nNiepoprawna liczba argumentow\nPatrz README\n");
         exit(101);
@@ -72,14 +63,8 @@ int main(int argc, char **argv)
     printf("\n\nUtworzono semafor z poczatkowa wartoscia %d\n\n", semaphInitValue);
 
     /* utworzenie obiektu pamieci dzielonej */
-    create_shm_obj(shmObjName);
-
-    /* nazwy plikow wykonywalnych producenta i konsumenta */
-    char prodExec[50];
-    sprintf(prodExec, "./producer%s.x", argv[3]);
-
-    char consExec[50];
-    sprintf(consExec, "./consumer%s.x", argv[3]);
+    int shmObjAdress = create_shm_obj(shmObjName);
+    truncate_shm_obj(shmObjAdress);
 
     /* fork - dwa procesy potomne beda wykonywac programy
        producenta i konsumenta */
@@ -89,7 +74,7 @@ int main(int argc, char **argv)
             perror("fork error");
             exit(401);
         case 0:
-            execlp(prodExec, "producer", argv[1], semaphName, /*shm adress*/ NULL);
+            execlp("./producer.x", "producer", argv[1], semaphName, shmObjName, NULL);
             perror("execlp error");
             _exit(501);
         default:
@@ -102,7 +87,7 @@ int main(int argc, char **argv)
             perror("fork error");
             exit(402);
         case 0:
-            execlp(consExec, "consumer", argv[2], semaphName, /*shm adress*/ NULL);
+            execlp("./consumer.x", "consumer", argv[2], semaphName, shmObjName, NULL);
             perror("execlp error");
             _exit(502);
     }
